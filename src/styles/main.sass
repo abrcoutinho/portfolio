@@ -1,0 +1,30 @@
+@use "base"
+
+body
+  overflow: hidden
+  background-color: var(--neutral_10)
+  display: grid
+  place-content: center
+  grid-auto-flow: column
+  width: 100vw
+  height: 100dvh
+  //background-image: linear-gradient(#6b6b6b, #9b9b9b)
+
+.app
+  width: calc(100vw - .5rem)
+  height: calc(100dvh - .5rem)
+  background-color: var(--neutral_10)
+  border-radius: .5rem
+  overflow: hidden
+  box-sizing: border-box
+  border: solid 1px var(--neutral_30)
+  position: relative
+
+.content
+  position: relative
+  overflow-x: hidden
+  box-sizing: border-box
+
+@include base.for-size(tablet_lg)
+  .content
+    animation: none

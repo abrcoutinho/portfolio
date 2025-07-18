@@ -1,0 +1,20 @@
+---
+import Head from '../components/Head.astro';
+import Menu from '../components/Menu.astro';
+import '../styles/main.sass';
+
+const { lang, title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <Head title={title} description={description} lang={lang} />
+  <body>
+    <Menu />
+    <div class="app">
+      <div class="content">
+        <slot />
+      </div>
+    </div>
+  </body>
+</html>

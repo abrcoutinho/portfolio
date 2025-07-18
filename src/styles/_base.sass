@@ -1,0 +1,120 @@
+
+// color themes
+:root
+  --brand: #FE641A
+  --neutral_0: #FFFFFF
+  --neutral_10: #EDEDED
+  --neutral_30: #BDBDBD
+  --neutral_90: #16222E
+  --opacity_20: rgba(22,34,46,.2)
+
+$brand-red: #FF150A
+$brand-yellow: #FEBF0A
+$gradient: linear-gradient(25deg, $brand-red, $brand-yellow)
+$bull: #B8FFA6
+$bear: #FFA6A6
+
+$ease: cubic-bezier(0.5,0,0,1)
+
+
+// resets
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, nav, section, menu, time, mark, audio, video, canvas
+  margin:     0
+  padding:    0
+  border:     0
+  outline:     none
+
+body, input, textarea, button
+  color: var(--neutral_90)
+  font-family: "Outfit", sans-serif
+  font-optical-sizing: auto
+  font-weight: 500
+  font-style: normal
+  font-size: 1rem
+
+a
+  text-decoration: none
+ul, ol, dl
+  list-style: none
+img
+  display: block
+em
+  font-style: normal
+
+
+// selection
+::selection
+  background: var(--brand)
+  color: var(--neutral_90)
+  text-shadow: none
+
+
+// placeholder
+::-webkit-input-placeholder
+  color: var(--brand)
+::-moz-placeholder
+  color: var(--brand)
+\:-moz-placeholder
+  color: var(--brand)
+\:-ms-input-placeholder
+  color: var(--brand)
+
+
+// scrollbars webkit
+::-webkit-scrollbar
+  width: 1rem
+  background-color: transparent
+
+// ::-webkit-scrollbar-track
+  // border-radius: .25rem
+
+::-webkit-scrollbar-thumb
+  background-color: var(--brand)
+  border-right: solid .15rem var(--neutral_0)
+  border-left: solid .25rem var(--neutral_0)
+
+  &:hover
+    border-left: none
+  
+// ::-webkit-scrollbar-thumb:window-inactive
+//   background: var(--neutral_20)
+//   border: solid 1px red
+
+::-webkit-scrollbar-button:start,
+::-webkit-scrollbar-button:end
+  height: 1rem
+
+
+
+%clear
+  &:after
+    height:             0
+    clear:              both
+    content:            "."
+    display:            block
+    font-size:          0
+    visibility:         hidden
+    position:           initial
+
+
+
+// media queries
+@mixin for-size($size)
+  @if $size == phone
+    @media (max-width: 40rem)
+      @content
+  @else if $size == tablet_md
+    @media (max-width: 48rem)
+      @content
+  @else if $size == tablet_lg
+    @media (max-width: 64rem)
+      @content
+  @else if $size == desk_sm
+    @media (max-width: 1280px)
+      @content
+  @else if $size == desk_md
+    @media (max-width: 1536px)
+      @content
+
+
+$main_column: 67.5rem

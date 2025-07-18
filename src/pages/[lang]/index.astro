@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'pt' } },
+    { params: { lang: 'en' } }
+  ];
+}
+
+const { lang } = Astro.params;
+const translations = await import(`../../i18n/${lang}.ts`);
+const t = translations.default;
+---
+
+<BaseLayout lang={lang} title={t.title} description={t.description}>
+
+	<header>
+		<h1>{t.welcome}</h1>
+		<p>aaa</p>
+		<p>bbb</p>
+	</header>
+	
+	<div class="gallery">
+		<figure>
+			<img src="">
+			<figcaption></figcaption>
+		</figure>
+	</div>
+
+</BaseLayout>
+
+
+<style lang="sass">
+    h1
+      font-size: 40px
+</style>
+
+

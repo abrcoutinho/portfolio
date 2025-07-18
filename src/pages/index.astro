@@ -1,0 +1,17 @@
+---
+const base = Astro.site?.pathname || '/';
+const redirectUrl = base + 'pt/';
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content={`0; url=${redirectUrl}`} />
+    <script>
+      window.location.href = `${redirectUrl}`;
+    </script>
+    <title>Redirecionando...</title>
+  </head>
+  <body>
+    <p>Redirecionando para <code>{redirectUrl}</code>...</p>
+  </body>
+</html>
