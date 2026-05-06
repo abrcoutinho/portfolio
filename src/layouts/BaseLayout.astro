@@ -1,20 +1,73 @@
 ---
+import { getLang } from "../i18n/index.js";
+
 import Head from '../components/Head.astro';
-import Menu from '../components/Menu.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import GSAPClient from "../components/GSAPClient.astro";
+import AnimatedSection from "../components/AnimatedSection.astro";
 import '../styles/main.sass';
 
-const { lang, title, description } = Astro.props;
----
+const { lang } = Astro.params;
+const currentLang = ["en", "pt"].includes(lang) ? lang : "en";
 
+const dict = getLang(currentLang);
+---
 <!DOCTYPE html>
-<html lang={lang}>
-  <Head title={title} description={description} lang={lang} />
-  <body>
-    <Menu />
-    <div class="app">
-      <div class="content">
-        <slot />
-      </div>
-    </div>
-  </body>
+<html>
+	<Head title={dict.common.title} description={dict.common.description} />
+	<body>
+		<GSAPClient />
+		<Header />
+
+		<div id="loader"><div class="loader"></div></div>
+		<script>
+			window.addEventListener("load", () => {
+				const loader = document.getElementById("loader");
+				loader.classList.add("fade-out");
+
+				setTimeout(() => {
+					loader.style.display = "none";
+				}, 500);
+			});
+		</script>
+
+		<div class="app" id="smooth-wrapper">
+			<canvas id="gridcanvas"></canvas>
+			<div class="content" id="smooth-content">
+				<slot />
+			</div>
+		</div>
+		<Footer dict={dict} />
+
+		<script type="module" src={`${import.meta.env.BASE_URL}/js/scripts.js`} is:client></script>
+	</body>
 </html>
+
+<style lang="sass">
+	#loader
+		position: fixed
+		inset: 0
+		background: #0f0f0f
+		display: flex
+		align-items: center
+		justify-content: center
+		z-index: 9999
+		transition: opacity 0.5s ease
+
+	#loader.fade-out
+		opacity: 0
+
+	.loader
+		width: 50px
+		aspect-ratio: 1
+		border-radius: 50%
+		padding: 3px
+		background: radial-gradient(farthest-side,#ffa516 95%,#0000) 50% 0/12px 12px no-repeat, radial-gradient(farthest-side,#0000 calc(100% - 5px),#ffa516 calc(100% - 4px)) content-box
+		animation: loader 2s infinite
+
+	@keyframes loader
+		to
+			transform: rotate(1turn)
+
+</style>

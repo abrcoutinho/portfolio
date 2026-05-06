@@ -1,0 +1,22 @@
+---
+const defaultGrupos = [
+  {
+    titulo: "Padrão",
+    itens: ["Iten 1", "Iten 2"],
+  },
+];
+const { name, dataname, src, alt, company, grupos = defaultGrupos } = Astro.props;
+---
+<article class="slide" data-name={dataname}>
+	<div>
+		<img data-src={src} alt={alt} />
+	</div>
+	<h3><i></i>{name}<span>{company}</span></h3>
+	{grupos.map((grupo) => (
+		<ul class="job_done">
+			{grupo.itens.map((item) => (
+				<li>{item}</li>
+			))}
+		</ul>
+	))}
+</article>

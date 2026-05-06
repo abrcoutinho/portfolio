@@ -1,0 +1,29 @@
+<div class="section">
+  <h1>GSAP no Astro 🚀</h1>
+</div>
+
+<script client:load>
+  import { gsap } from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".section h1", {
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    scrollTrigger: {
+      trigger: ".section",
+      start: "top 70%",
+    },
+  });
+</script>
+
+<style>
+  .section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

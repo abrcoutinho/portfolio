@@ -1,0 +1,436 @@
+@use "variables" as *
+@use "base"
+
+.intro
+	box-sizing: border-box
+	padding: 7vw 2vw
+	color: var(--bright1)
+
+	& > div
+		display: flex
+		align-items: center
+		justify-content: space-between
+		position: relative
+
+	strong
+		font-size: 30vw
+		position: relative
+
+		&.dif
+			color: #4aa2a3
+
+	i
+		font-style: normal
+		display: inline-block
+		transition: letter-spacing .8s $ease, transform .8s $ease
+
+		&.active
+			letter-spacing: 1vw
+			transform: skewX(-10deg)
+
+	#cardslider
+		width: 24vw
+		height: 28vw
+		border-radius: 1.5rem 4rem 1.5rem 1.5rem
+		corner-shape: round bevel round round
+		margin-top: -3rem
+		overflow: hidden
+		position: relative
+		cursor: pointer
+		filter: url(#distortion)
+		transition: transform .8s $ease
+		z-index: 2
+		animation: floating 6s ease-in-out infinite
+
+		&:hover
+			outline: solid 1px rgba(bisque, .4)
+
+		svg
+			position: absolute
+
+		.cardimg
+			position: absolute
+			width: 100%
+			height: 100%
+			object-fit: cover
+			opacity: 0
+			pointer-events: none
+
+			&.active
+				opacity: 1
+
+		@keyframes floating
+			0%
+				box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6)
+				transform: translatey(0px) rotate(4deg)
+			50%
+				box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2)
+				transform: translatey(-20px) rotate(4deg)
+			100%
+				box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6)
+				transform: translatey(0px) rotate(4deg)
+
+	#three-container
+		display: inline-block
+		width: 20vw
+		height: 20vw
+		margin-top: -3rem
+		position: relative
+		overflow: hidden
+		border-radius: 2rem
+		box-sizing: border-box
+		// border: solid 1px rgba(bisque, .1)
+
+		canvas
+			position: absolute
+			top: 0
+			left: 0
+			// transform: scale(1.2)
+
+
+	.who_i_am
+		width: 25vw
+		font-family: "Manrope", sans-serif
+		font-weight: 600
+		font-style: normal
+		font-size: 1.8vw
+		line-height: 1.4
+		text-align: center
+		text-transform: uppercase
+		transition: transform 0.1s, box-shadow 0.1s
+
+		em
+			font-family: "CustomFont", sans-serif
+			font-size: 6vw
+			line-height: .5
+			display: inline-block
+			transform: skewX(-10deg)
+			text-transform: none
+			cursor: default
+			position: relative
+			z-index: 2
+			transition: transform .5s $ease
+			// animation: trace $ease 500ms infinite alternate
+
+
+			&::after
+				content: ''
+				width: 100%
+				height: .75rem
+				background-color: var(--bright1)
+				position: absolute
+				left: 0
+				bottom: -.4rem
+				animation: trace $ease 2000ms infinite
+				mix-blend-mode: difference
+
+			&::before
+				content: ''
+				width: 12vw
+				height: 12vw
+				// background-color: var(--bright1)
+				// mask-image: url("/portfolio/img/icons/aim.svg")
+				// mask-size: contain
+				// border: solid 2px var(--bright1)
+				border-radius: 100%
+				background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23fbe940' stroke-width='7' stroke-dasharray='50%25%2c 13%25' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e")
+				position: absolute
+				top: 50%
+				left: 50%
+				opacity: 0
+				transform-origin: 0% 0%
+
+			&.active
+				transform: translateY(12rem)
+				mix-blend-mode: color-dodge
+				&::after
+					display: none
+				&::before
+					transition: opacity .8s $ease .2s
+					opacity: .6
+					animation: spin 3000ms infinite
+
+		@keyframes trace
+			0%
+				width: 0
+				left: 0
+			25%
+				width: 100%
+				left: 0
+			26%
+				width: 100%
+				left: initial
+				right: 0
+			50%
+				width: 0
+				left: initial
+				right: 0
+			100%
+				width: 0
+				left: initial
+				right: 0
+
+		@keyframes spin
+			from
+				transform: rotate(0deg) translate(-50%, -50%)
+			to
+				transform: rotate(360deg) translate(-50%, -50%)
+
+	.infoico
+		display: block
+		width: 1.5vw
+		height: 1.5vw
+		background-color: var(--dark1)
+		mask-image: url("/portfolio/img/icons/info.svg")
+		mask-size: contain
+		position: absolute
+		top: 1.8vw
+		right: .8vw
+		pointer-events: none
+
+
+
+.card
+	display: block
+	perspective: 1600px
+	width: 26rem
+	height: 36rem
+	position: absolute
+	top: 50%
+	left: 50%
+	margin: -25% -12%
+	z-index: 1
+	opacity: 0
+	visibility: hidden
+	transition: opacity .5s
+
+	.card-inner
+		position: relative
+		width: 100%
+		height: 100%
+		transition: box-shadow 0.2s
+		will-change: transform
+		transform-style: preserve-3d
+		border-radius: 2rem 4rem 2rem 2rem
+		corner-shape: round bevel round round
+		overflow: hidden
+
+	.layer
+		position: absolute
+		inset: 0
+	.bg
+		background:
+			image: url("/portfolio/img/me.webp")
+			position: center
+			size: cover
+		transform: translateZ(0px)
+		box-sizing: border-box
+	.deph
+		background: rgba(255,255,255,0.04)
+		transform: translateZ(25px)
+	.holo
+		background: linear-gradient(120deg, rgba(255,0,150,0.7), rgba(0,255,255,0.7), rgba(255,255,0,0.7))
+		mix-blend-mode: saturation
+		opacity: 0.7
+		transform: translateZ(45px)
+		mask-image: url("/portfolio/img/halftone.webp")
+	.glare
+		position: absolute
+		inset: 0
+		opacity: 0
+		transition: opacity 0.5s
+		pointer-events: none
+		mask-image: url("/portfolio/img/noppy.svg")
+		will-change: background
+	.edge
+		position: absolute
+		inset: 0
+		border-radius: 18px
+		pointer-events: none
+		background: linear-gradient(120deg,	transparent, rgba(255,255,255,0.4),	transparent)
+		opacity: 0.4
+		transition: opacity 0.3s
+		mask-image: url("/portfolio/img/halftone.webp")
+		will-change: background
+		mix-blend-mode: overlay
+	.noise
+		position: absolute
+		inset: 0
+		opacity: 0.15
+		pointer-events: none
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")
+
+.about
+	padding: 0 6rem
+	color: bisque
+	display: flex
+	gap: 5vw
+
+	header
+		flex: 1
+
+	h2
+		font-size: 5vw
+	a
+		display: inline-block
+		width: max-content
+		height: 3rem
+		font-family: "Manrope", sans-serif
+		font-weight: 700
+		margin-top: 2rem
+		text-transform: uppercase
+		position: relative
+		perspective: 100px
+		
+		span
+			height: 100%
+			border-radius: .4rem 1rem .4rem 1rem
+			corner-shape: round bevel round bevel
+			padding: 0 1rem
+			color: bisque
+			display: flex
+			align-items: center
+			gap: .5rem
+			background-color: rgba(bisque, .2)
+			transition: transform .9s cubic-bezier(0,1.5,.12,1), opacity .9s cubic-bezier(0,1.5,.12,1)
+			transform-style: preserve-3d
+			transform: translate3d(0px, 0, 0) rotateX(0deg)
+
+		&::after
+			content: attr(data-after)
+			height: 100%
+			border-radius: .4rem 1rem .4rem 1rem
+			corner-shape: round bevel round bevel
+			padding: 0 1rem
+			color: var(--dark1)
+			display: flex
+			align-items: center
+			gap: .5rem
+			background-color: bisque
+			transition: transform .9s cubic-bezier(0,1.5,.12,1), opacity .9s cubic-bezier(0,1.5,.12,1), border-radius .9s cubic-bezier(0,1.5,.12,1)
+			transform-style: preserve-3d
+			transform: translate3d(0, -1.8rem, -6rem)
+			opacity: 0
+		&::before
+			content: ''
+			width: 1.5rem
+			height: 1.5rem
+			background-color: bisque
+			mask-image: url("/portfolio/img/icons/doc.svg")
+			mask-size: contain
+			position: absolute
+			top: 50%
+			right: -2rem
+			transform: translateY(-50%)
+			pointer-events: none
+			transition: transform .5s
+
+		&:hover
+			span
+				transform: translate3d(0px, -1rem, 0) rotateX(74deg)
+				opacity: 0
+			&::after
+				transform: translate3d(0, -3rem, 0)
+				opacity: 1
+			&::before
+				transform: translateY(-50%) scale(1.2)
+
+	p
+		flex: 1
+		font-family: "Manrope", sans-serif
+		font-optical-sizing: auto
+		font-weight: 300
+		font-style: normal
+		font-size: 1.4vw
+		line-height: 1.4
+	b
+		font-weight: 700
+		color: chocolate
+	.areainfo
+		text-decoration: underline
+
+
+.cert
+	color: bisque
+	display: flex
+	justify-content: center
+	align-items: center
+	gap: 2rem
+	font-size: 1.5rem
+	text-transform: uppercase
+	margin-top: 2.5rem
+	letter-spacing: 2px
+	
+	& > span
+		display: inline-block
+		display: flex
+		gap: 1.25rem
+		border: solid 1px rgba(bisque, .4)
+		border-radius: 70px
+		// background-color: bisque
+		padding: .25rem
+
+	img
+		border-radius: 100%
+		&:hover
+			transform: scale(1.05)
+			// outline: solid 1px chocolate
+
+
+
+@include base.for-size(tablet_lg)
+	.intro
+		padding: 20vw 10vw 2vw
+
+		& > div
+			&:not(:first-of-type)
+				margin-top: -8rem
+
+		strong
+			font-size: 22vw
+
+	.about
+		gap: 2vw
+
+		p
+			font-size: 1.8vw
+
+
+@include base.for-size(tablet_md)
+	.about
+		padding: 0 3rem
+
+
+@include base.for-size(phone)
+	.about
+		padding: 0 2rem
+		flex-wrap: wrap
+		flex-direction: column
+		gap: 2rem
+
+		header
+			display: flex
+			justify-content: space-between
+			align-items: flex-end
+		h2
+			font-size: 12vw
+		a
+			&::before
+				display: none
+		p
+			font-size: .9rem
+			line-height: 1.6
+
+	.card
+		width: 75vw
+		height: 90vw
+		margin: -35% -38vw
+
+	.cert
+		justify-content: flex-start
+		padding: 0 2rem
+		font-size: 1.2rem
+
+		img
+			width: 20vw
+			height: auto

@@ -1,0 +1,24 @@
+---
+const { dict } = Astro.props;
+---
+
+<footer class="footer">
+	<div>
+		<address><i></i>{dict.footer.location}<i></i></address>
+		<p>{dict.footer.txt}</p>
+		<address class="contact-links">
+			<a href="https://api.whatsapp.com/send?phone=5511953053155&text=Hello,%20Noppy!" title="" target="_blank" class="areainfo whatsapp">
+				<span class="info"><marquee direction="left" scrollamount="12">WhatsApp</marquee></span>
+			</a>
+			<a href="https://www.linkedin.com/in/abraao/" title="" target="_blank" class="areainfo linkedin">
+				<span class="info"><marquee direction="left" scrollamount="12">LinkedIn</marquee></span>
+			</a>
+			<a href="" title="" target="_blank" class="areainfo email">
+				<span class="info"><marquee direction="left" scrollamount="12">Email</marquee></span>
+			</a>
+		</address>
+		<span class="lang">
+			<a href={`${Astro.site.pathname}pt/`} title="Português">PT</a> | <a href={`${Astro.site.pathname}en/`} title="English">EN</a>
+		</span>
+	</div>
+</footer>

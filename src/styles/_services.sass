@@ -1,0 +1,182 @@
+@use "variables" as *
+@use "base"
+
+.services
+	color: bisque
+	padding: 10vw 10vw 10rem
+	position: relative
+	z-index: 1
+	background-color: var(--dark2)
+	margin-top: -2px
+	box-shadow: 0 280px 200px rgba(black, 1)
+	transform-origin: top
+	corner-shape: bevel bevel round bevel
+
+	h2
+		display: flex
+		flex-direction: column
+		align-items: center
+		padding: 7.5rem 0
+		font-size: 10vw
+		text-transform: uppercase
+		line-height: .8
+		span
+			display: block
+			width: 50vw
+			&:nth-of-type(2)
+				text-align: right
+		i
+			font-style: normal
+			display: inline-block
+			letter-spacing: .1vw
+			transform: skewX(-6deg)
+
+	& > div
+		display: flex
+		gap: 1.25rem
+		
+	h3
+		font-size: 3rem
+		text-transform: uppercase
+
+	h4, li
+		font-size: 1.2vw//1.2rem
+		text-transform: uppercase
+		font-family: "Manrope", sans-serif
+		font-weight: 300
+
+	.creative
+		flex: 1
+		display: flex
+		flex-flow: row wrap
+		gap: 1.25rem
+
+		h3
+			flex: 0 0 100%
+		h4
+			text-align: right
+			flex: 1
+
+		article
+			flex: 1 0 calc(50% - 1.25rem)
+			perspective: 1500px
+
+			.serviceinner
+				display: flex
+				align-items: center
+				gap: .5rem
+				box-sizing: border-box
+				padding: .75rem 1.5rem .75rem .75rem
+				border: solid 1px bisque
+				border-radius: .75rem 3vw .75rem .75rem
+				corner-shape: round bevel round round
+
+				transition: transform 0.1s ease
+				transform-style: preserve-3d
+
+			i
+				flex: 0 0 6rem
+				height: 6rem
+				background-color: chocolate//bisque
+				mask-repeat: no-repeat
+				mask-size: contain
+				mask-position: center
+				transition: transform 2s cubic-bezier(0,1.5,.12,1)
+
+			&:hover i
+				transform: scale(.9)
+
+			&:first-of-type i
+				mask-image: url("/portfolio/img/icons/shape1.svg")
+			&:nth-of-type(2) i
+				mask-image: url("/portfolio/img/icons/shape2.svg")
+			&:nth-of-type(3) i
+				mask-image: url("/portfolio/img/icons/shape3.svg")
+			&:nth-of-type(4) i
+				mask-image: url("/portfolio/img/icons/shape4.svg")
+			&:nth-of-type(5) i
+				mask-image: url("/portfolio/img/icons/shape5.svg")
+			&:nth-of-type(6) i
+				mask-image: url("/portfolio/img/icons/shape6.svg")
+			&:nth-of-type(7) i
+				mask-image: url("/portfolio/img/icons/shape7.svg")
+			&:nth-of-type(8) i
+				mask-image: url("/portfolio/img/icons/shape8.svg")
+
+	.dev
+		flex: 0 0 25vw
+		display: flex
+		flex-direction: column
+		gap: 1.25rem
+
+		ul
+			flex: 1
+			box-sizing: border-box
+			padding: .75rem 1.75rem
+			border: solid 1px bisque
+			border-radius: .75rem 3vw .75rem .75rem
+			corner-shape: round bevel round round
+			display: flex
+			flex-direction: column
+
+		li
+			padding: .6rem 0
+			border-top: solid 1px bisque
+
+			&:first-child
+				flex: 1
+				border-top: none
+
+		i
+			display: block
+			width: 3rem
+			height: 3rem
+			background-color: bisque
+			mask-repeat: no-repeat
+			mask-size: contain
+			mask-position: center
+			mask-image: url("/portfolio/img/icons/shape9.svg")
+			margin-bottom: 1.5rem
+
+
+
+@include base.for-size(tablet_md)
+	.services
+		padding: 10vw 4vw 10rem
+		.creative
+			gap: .75rem
+			article
+				flex: 0 0 100%
+				i
+					flex: 0 0 3rem
+					height: 3rem
+		.dev
+			flex: 0 0 34vw
+		h4, li
+			font-size: 1rem
+
+
+@include base.for-size(phone)
+	.services
+		padding: 10vw 8vw 10rem
+		& > div
+			flex-direction: column
+			flex-wrap: wrap
+			gap: 4rem
+		.creative
+			article
+				flex: 1 0 calc(50% - 0.75rem)
+				i
+					flex: 0 0 2rem
+					height: 2rem
+				.serviceinner
+					padding: .5rem
+					height: 3.8rem
+					border-radius: 0.75rem 5vw 0.75rem 0.75rem
+		.dev
+			ul
+				border-radius: 0.75rem 10vw 0.75rem 0.75rem
+			li:first-child
+				padding-bottom: 2rem
+		h4, li
+			font-size: 3.4vw

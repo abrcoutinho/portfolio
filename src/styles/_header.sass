@@ -1,0 +1,54 @@
+@use "variables" as *
+@use "base"
+
+.header
+	width: 14vw
+	box-sizing: border-box
+	padding: 0.75rem 1rem
+	border: solid 1px rgba(bisque, .3)
+	border-radius: .4rem 1.5rem .4rem 1.5rem
+	corner-shape: round bevel round bevel
+	position: fixed
+	top: .5rem
+	left: .5rem
+	z-index: 5
+
+	.logo
+		width: 100%
+		height: auto
+		path
+			fill: darkgrey
+
+	small
+		font-family: "Manrope", sans-serif
+		font-weight: 900
+		font-size: .7vw
+		color: rgba(bisque, .4)
+		position: absolute
+		bottom: .5rem
+		left: .95rem
+		cursor: default
+
+
+
+@include base.for-size(tablet_lg)
+	.header
+		width: 28vw
+		padding: 1.25rem 1.25rem
+		border-radius: 0.75rem 2rem 0.75rem 2rem
+
+		small
+			font-size: 1.5vw
+			left: 1.25rem
+			bottom: 0.9rem
+
+@include base.for-size(phone)
+	.header
+		width: 40vw
+		padding: .75rem 1rem
+		border-radius: 0.25rem 1.5rem 0.25rem 1.5rem
+
+		small
+			font-size: .6rem
+			left: 1rem
+			bottom: 0.5rem

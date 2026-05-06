@@ -1,0 +1,29 @@
+---
+const defaultGrupos = [
+  {
+    titulo: "Padrão",
+    itens: ["Iten 1", "Iten 2"],
+  },
+];
+const { name, dataname, src, muted, loop, type, company, grupos = defaultGrupos } = Astro.props;
+---
+<article class="slide" data-name={dataname}>
+	<div>
+		<video muted={muted} loop={loop} playsinline preload="none">
+			<source data-src={src} type={type} />
+		</video>
+
+		<button class="video-toggle">▶</button>
+		<div class="progress">
+			<div class="progress-bar"></div>
+		</div>
+	</div>
+	<h3><i></i>{name}<span>{company}</span></h3>
+	{grupos.map((grupo) => (
+		<ul class="job_done">
+			{grupo.itens.map((item) => (
+				<li>{item}</li>
+			))}
+		</ul>
+	))}
+</article>

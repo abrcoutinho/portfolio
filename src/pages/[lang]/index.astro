@@ -1,76 +1,397 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLang } from "../../i18n/index.js";
 
 export async function getStaticPaths() {
-  return [
-    { params: { lang: 'pt' } },
-    { params: { lang: 'en' } }
-  ];
+	return [
+		{ params: { lang: 'pt' } },
+		{ params: { lang: 'en' } }
+	];
 }
 
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SlideIMG from '../../components/SlideIMG.astro';
+import SlideVideo from '../../components/SlideVideo.astro';
+import AnimatedSection from "../../components/AnimatedSection.astro";
+import Footer from '../../components/Footer.astro';
+
 const { lang } = Astro.params;
-const translations = await import(`../../i18n/${lang}.ts`);
-const t = translations.default;
+const currentLang = ["en", "pt"].includes(lang) ? lang : "en";
+
+const dict = getLang(currentLang);
+
+const cardImages = [
+	"/portfolio/img/slides/vega/panfleto1.jpg", 
+	"/portfolio/img/slides/vega/panfleto2.jpg", 
+	"/portfolio/img/slides/vega/panfleto3.jpg"
+];
+
+
 ---
+<!-- import ThreeScene from "../../components/ThreeScene.astro"; -->
+<BaseLayout dict={dict} title={dict.common.title} description={dict.common.description}>
 
-<BaseLayout lang={lang} title={t.title} description={t.description}>
+	<section class="intro">
+		<div>
+			<strong><i>P</i>RO</strong>
 
-	<header>
-		<h1>{t.welcome}</h1>
-	</header>
-	
-	<div class="gallery">
-		<div class="wrapper">
-			<figure>
-				<img src="">
-				<figcaption>aaa</figcaption>
-			</figure>
-			<figure>
-				<img src="">
-				<figcaption>aaa</figcaption>
-			</figure>
-			<figure>
-				<img src="">
-				<figcaption>aaa</figcaption>
-			</figure>
-			<figure>
-				<img src="">
-				<figcaption>aaa</figcaption>
-			</figure>
-			<figure>
-				<img src="">
-				<figcaption>aaa</figcaption>
-			</figure>
+ 			<div id="cardslider">
+				<svg width="0" height="0">
+					<filter id="distortion">
+						<feTurbulence type="turbulence" numOctaves="2" result="warp"/>
+						<feDisplacementMap in="SourceGraphic" in2="warp" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+					</filter>
+				</svg>
 
-			<figure>
-				<img src="">
-				<figcaption>aaa</figcaption>
-			</figure>
-			<figure>
-				<img src="">
-				<figcaption>aaa</figcaption>
-			</figure>
-			<figure>
-				<img src="">
-				<figcaption>aaa</figcaption>
-			</figure>
-			<figure>
-				<img src="">
-				<figcaption>aaa</figcaption>
-			</figure>
-			<figure>
-				<img src="">
-				<figcaption>aaa</figcaption>
-			</figure>
+				{cardImages.map((img, i) => (
+					<img src={img} class={`cardimg ${i === 0 ? "active" : ""}`} />
+				))}
+			</div>
+
+			<strong class="dif">DU<i>C</i>T</strong>
 		</div>
+		<div>
+			<span id="three-container"></span>
+			<script type="module">
+				import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+
+				const container = document.getElementById("three-container");
+				const scene = new THREE.Scene();
+				const camera = new THREE.PerspectiveCamera(
+					35,
+					container.clientWidth / container.clientHeight,
+					0.1,
+					1000
+				);
+				camera.position.z = 3;
+
+				const renderer = new THREE.WebGLRenderer({
+					antialias: true,
+					alpha: true
+				});
+				renderer.setClearColor(0x000000, 0);
+				renderer.setSize(container.clientWidth, container.clientHeight);
+				container.appendChild(renderer.domElement);
+
+				// Cubo
+				const cube = new THREE.Mesh(
+					new THREE.BoxGeometry(),
+					new THREE.MeshNormalMaterial()
+				);
+				scene.add(cube);
+
+				// 🎮 Controle via mouse
+				let mouseX = 0;
+				let mouseY = 0;
+
+				window.addEventListener("mousemove", (event) => {
+					mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+					mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+				});
+
+				function animate() {
+					requestAnimationFrame(animate);
+
+					// suavização (efeito "inércia")
+					cube.rotation.y += (mouseX * 0.5 - cube.rotation.y) * 0.05;
+					cube.rotation.x += (mouseY * 0.5 - cube.rotation.x) * 0.05;
+
+					renderer.render(scene, camera);
+				}
+
+				animate();
+
+				// responsivo
+				window.addEventListener("resize", () => {
+					const width = container.clientWidth;
+					const height = container.clientHeight;
+
+					renderer.setSize(width, height);
+					camera.aspect = width / height;
+					camera.updateProjectionMatrix();
+				});
+			</script>
+			<strong>DESI<i>G</i>NER</strong>
+		</div>
+		<div>
+			<strong>
+				& 
+				<span class="areainfo split">
+					<i>U</i>I
+					<span class="info">
+						<marquee direction="left" scrollamount="12">User Interface Developer</marquee>
+					</span>
+				</span><span class="infoico"></span>
+			</strong>
+			<p set:html={dict.who_i_am} class="who_i_am splitline" />
+			<span class="card" id="card">
+				<div class="card-inner" id="inner">
+					<div class="layer bg"></div>
+					<div class="layer deph"></div>
+					<div class="layer holo"></div>
+					<div class="glare" id="glare"></div>
+					<div class="edge" id="edge"></div>
+					<div class="noise"></div>
+				</div>
+			</span>
+			<strong class="dif split">D<i>E</i>V</strong>
+		</div>
+	</section>
+
+	<div class="about">
+		<header>
+			<h2 set:html={dict.about.title} class="split" />
+			<a href="#" title={dict.about.button} target="_blank" data-after={dict.about.button}>
+				<span>{dict.about.button}</span>
+			</a>
+		</header>
+		<p set:html={dict.about.p1}/>
+		<p set:html={dict.about.p2}/>
+		<p set:html={dict.about.p3}/>
 	</div>
 
+	<div class="cert">
+		<strong>{dict.about.cert}</strong>
+		<span>
+			<figure class="areainfo">
+				<img src={`${import.meta.env.BASE_URL}img/ufes.png`} alt="UFES" />
+				<figcaption class="info">
+					<marquee direction="left" scrollamount="12">Universidade Federal do Espírito Santo</marquee>
+				</figcaption>
+			</figure>
+			<figure class="areainfo">
+				<img src={`${import.meta.env.BASE_URL}img/ixdf.png`} alt="IxDF" />
+				<figcaption class="info">
+					<marquee direction="left" scrollamount="12">Interaction Design Foundation</marquee>
+				</figcaption>
+			</figure>
+		</span>
+	</div>
+
+	<div class="featured">
+		<h2 class="split">
+			<span set:html={dict.featured.title1}/>
+			<span set:html={dict.featured.title2}/>
+		</h2>
+
+		<div class="carousel" data-carousel>
+			<div class="carousel-track">
+				<SlideVideo
+					name="Landing Page"
+					src={`${import.meta.env.BASE_URL}img/slides/vega/landing.webm`}
+					dataname="vega-landing"
+					type="video/webm"
+					muted="true"
+					loop="true"
+					company="Vega"
+					grupos={[
+						{ itens: ["Web Design", "UI dev"] }
+					]}
+				/>
+				<article class="slide" data-info data-name="vega-info">
+					<strong>Vega Checkout</strong>
+					<span>
+						<p set:html={dict.featured.vega_p1}/>
+						<p set:html={dict.featured.vega_p2}/>
+						<p set:html={dict.featured.vega_p3}/>
+					</soan>
+				</article>
+				<SlideVideo
+					name="Placas de Premiação"
+					src={`${import.meta.env.BASE_URL}img/slides/vega/placas.webm`}
+					dataname="vega-placas"
+					type="video/webm"
+					muted="true"
+					loop="true"
+					company="Vega"
+					grupos={[
+						{ itens: ["Design Gráfico", "Gamificação"] }
+					]}
+				/>
+				<SlideIMG
+					name="SaaS Dashboard"
+					dataname="vega-dash"
+					company="Vega"
+					grupos={[
+						{ itens: ["UX/UI Design"] }
+					]}
+				/>
+				<SlideIMG
+					name="Checkout Customizável"
+					dataname="checkout"
+					company="Vega"
+					grupos={[
+						{ itens: ["UX/UI Design"] }
+					]}
+				/>
+				<SlideIMG
+					name="Central de Ajuda"
+					dataname="vega-ajuda"
+					company="Vega"
+					grupos={[
+						{ itens: ["Web Design", "UI dev"] }
+					]}
+				/>
+				<SlideIMG
+					name="Panfleto"
+					alt="Panfleto"
+					dataname="vega-flyer"
+					company="Vega"
+					grupos={[
+						{ itens: ["Design Gráfico"] }
+					]}
+				/>
+				<SlideIMG
+					name="Folder"
+					alt="Folder"
+					dataname="vega-folder"
+					company="Vega"
+					grupos={[
+						{ itens: ["Design Gráfico"] }
+					]}
+				/>
+				<SlideVideo
+					name="Roleta de Brindes"
+					src={`${import.meta.env.BASE_URL}img/slides/vega/roleta.webm`}
+					dataname="roleta"
+					type="video/webm"
+					muted="true"
+					loop="true"
+					company="Vega"
+					grupos={[
+						{ itens: ["Gamificação", "UI dev"] }
+					]}
+				/>
+			</div>
+			<div class="carousel-dots"></div>
+		</div>
+
+<!-- 		<div class="carousel" data-carousel>
+			<div class="carousel-track">
+				<SlideIMG
+					name= "Vega Landing Page"
+					src={`${import.meta.env.BASE_URL}img/me.webp`}
+					alt="Vega Landing Page"
+					order="3"
+				/>
+			</div>
+			<div class="carousel-dots"></div>
+		</div> -->
+
+
+	</div>
+
+
+
+
+
+	<section class="services">
+		<h2 class="split">
+			<span set:html={dict.services.title1}/>
+			<span set:html={dict.services.title2}/>
+		</h2>
+
+		<div>
+			<div class="creative">
+				<h3>{dict.services.sub1}</h3>
+				<article class="areainfo servicecard">
+					<div class="serviceinner">
+						<i></i><h4>{dict.services.li1}</h4>
+						<span class="info">
+							<marquee direction="left" scrollamount="16">{dict.services.info1}</marquee>
+						</span>
+					</div>
+				</article>
+
+				<article class="areainfo servicecard">
+					<div class="serviceinner">
+						<i></i><h4>{dict.services.li2}</h4>
+						<span class="info">
+							<marquee direction="left" scrollamount="16">{dict.services.info2}</marquee>
+						</span>
+					</div>
+				</article>
+
+				<article class="areainfo servicecard">
+					<div class="serviceinner">
+						<i></i><h4>{dict.services.li3}</h4>
+						<span class="info">
+							<marquee direction="left" scrollamount="16">{dict.services.info3}</marquee>
+						</span>
+					</div>
+				</article>
+
+				<article class="areainfo servicecard">
+					<div class="serviceinner">
+						<i></i><h4>{dict.services.li4}</h4>
+						<span class="info">
+							<marquee direction="left" scrollamount="16">{dict.services.info4}</marquee>
+						</span>
+					</div>
+				</article>
+
+				<article class="areainfo servicecard">
+					<div class="serviceinner">
+						<i></i><h4>{dict.services.li5}</h4>
+						<span class="info">
+							<marquee direction="left" scrollamount="16">{dict.services.info5}</marquee>
+						</span>
+					</div>
+				</article>
+
+				<article class="areainfo servicecard">
+					<div class="serviceinner">
+						<i></i><h4>{dict.services.li6}</h4>
+						<span class="info">
+							<marquee direction="left" scrollamount="16">{dict.services.info6}</marquee>
+						</span>
+					</div>
+				</article>
+
+				<article class="areainfo servicecard">
+					<div class="serviceinner">
+						<i></i><h4>{dict.services.li7}</h4>
+						<span class="info">
+							<marquee direction="left" scrollamount="16">{dict.services.info7}</marquee>
+						</span>
+					</div>
+				</article>
+
+				<article class="areainfo servicecard">
+					<div class="serviceinner">
+						<i></i><h4>{dict.services.li8}</h4>
+						<span class="info">
+							<marquee direction="left" scrollamount="16">{dict.services.info8}</marquee>
+						</span>
+					</div>
+				</article>
+			</div>
+
+			<aside class="dev">
+				<h3>{dict.services.sub2}</h3>
+
+				<ul>
+					<li>
+						<i></i>
+						{dict.services.p}
+					</li>
+					<li>HTML, CSS/SASS</li>
+					<li>Astro, Jekyll</li>
+					<li>Javascript</li>
+					<li>SEO</li>
+				</ul>
+			</aside>
+
+		</div>
+	</section>
+
+	<div class="contact">
+		<address class="split">hello<em>@</em>noppy.com.br</address>
+	</div>
+
+
+
+<!-- 	<AnimatedSection id="sec1" title="Bem-vindo!" subtitle="Esta seção aparece animada" />
+	<AnimatedSection id="sec2" title="Outra Seção" subtitle="Mais animações" />
+	<AnimatedSection id="sec3" title="Última Seção" subtitle="Smooth scroll + entrada" /> -->
+
 </BaseLayout>
-
-
-<style lang="sass">
-    h1
-      font-size: 40px
-</style>
-
-
