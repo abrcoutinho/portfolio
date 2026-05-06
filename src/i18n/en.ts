@@ -1,8 +1,7 @@
 export default {
   common: {
     title: "Noppy Design",
-    description: "aaa english",
-    welcome: "Welcome to the website!"
+    description: "Product Designer & UI Dev",
   },
   who_i_am: "I'm <em id='abe_word'>Abe</em>, Designer<br/>with expertise in creative and strategic solutions that build memorable experiences.",
   about: {

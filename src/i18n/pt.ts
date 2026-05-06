@@ -1,16 +1,15 @@
 export default {
   common: {
     title: "Noppy Design",
-    description: "aaa pt",
-    welcome: "Bem-vindo ao site! Português"
+    description: "Product Designer & UI Dev",
   },
-  who_i_am: "Sou <em id='abe_word'>Abê</em>, designer<br/>com expertise em soluções  criativas e estratégicas que constroem experiências memoráveis.",
+  who_i_am: "Sou <em id='abe_word'>Abê</em>, designer<br/>com expertise em soluções criativas e estratégicas que constroem experiências memoráveis.",
   about: {
     title: "2008<br/>— presente",
     button: "Baixar CV",
     p1: "Graduado em <b>Design Industrial</b> pela <span class='areainfo'>UFES<span class='info'><marquee scrollamount='12'>Universidade Federal do Espírito Santo</marquee></span></span>, atuo em projetos criando resposta visual a problemas de comunicação, envolvendo compreensão de hierarquia, tipografia, estética, composição e construção de imagens significativas.",
     p2: "Além do visual meu trabalho inclui identificar as maneiras de como a forma e função de artefatos físicos ou digitais podem criar valor, através de processos de ideação, pesquisa, prototipagem, teste de usuário e avaliação de resultados.",
-    p3: "Pela <b>Noppy Design</b> ofereço transformação digital e  inovação combinando estratégia e desenvolvimento. Converto desafios complexos em soluções simples e escaláveis, construindo produtos significativos que as pessoas usam.",
+    p3: "Pela <b>Noppy Design</b> ofereço transformação digital e inovação combinando estratégia e desenvolvimento. Converto desafios complexos em soluções simples e escaláveis, construindo produtos significativos que as pessoas usam.",
     cert: "Certificações",
   },
   featured: {
