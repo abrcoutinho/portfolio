@@ -155,6 +155,23 @@ card.addEventListener('mouseleave', () => {
 	});
 	abeWord.classList.remove("active");
 });
+document.addEventListener('click', (event) => {
+	if (!card.contains(event.target)) {
+			Object.assign(card.style, {
+					visibility: 'hidden',
+					opacity: '0'
+			});
+			abeWord.classList.remove("active");
+	}
+});
+abeWord.addEventListener('click', (event) => {
+	event.stopPropagation();
+	Object.assign(card.style, {
+		visibility: 'visible',
+		opacity: '1'
+	});
+	abeWord.classList.add("active");
+});
 
 
 
@@ -194,43 +211,43 @@ card.addEventListener('mouseleave', () => {
 const areasInfo = document.querySelectorAll(".areainfo");
 
 areasInfo.forEach((area) => {
-  const info = area.querySelector(".info");
+	const info = area.querySelector(".info");
 
-  let mouseX = 0;
-  let mouseY = 0;
+	let mouseX = 0;
+	let mouseY = 0;
 
-  let currentX = 0;
-  let currentY = 0;
+	let currentX = 0;
+	let currentY = 0;
 
-  const speed = 0.05;
+	const speed = 0.05;
 	const sizeX = 160;
 	const sizeY = 48;
 
-  area.addEventListener("mousemove", (e) => {
-    const rect = area.getBoundingClientRect();
+	area.addEventListener("mousemove", (e) => {
+		const rect = area.getBoundingClientRect();
 
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
-  });
+		mouseX = e.clientX - rect.left;
+		mouseY = e.clientY - rect.top;
+	});
 
-  function animateInfo() {
-    currentX += (mouseX - currentX) * speed;
-    currentY += (mouseY - currentY) * speed;
+	function animateInfo() {
+		currentX += (mouseX - currentX) * speed;
+		currentY += (mouseY - currentY) * speed;
 
-    info.style.left = (currentX - sizeX / 2) + "px";
-    info.style.top = (currentY - sizeY * 1.5) + "px";
+		info.style.left = (currentX - sizeX / 2) + "px";
+		info.style.top = (currentY - sizeY * 1.5) + "px";
 
-    requestAnimationFrame(animateInfo);
-  }
+		requestAnimationFrame(animateInfo);
+	}
 
-  animateInfo();
+	animateInfo();
 
 	area.addEventListener("mouseenter", () => {
-	  info.style.opacity = "1";
+		info.style.opacity = "1";
 	});
 
 	area.addEventListener("mouseleave", () => {
-	  info.style.opacity = "0";
+		info.style.opacity = "0";
 	});
 
 });
@@ -245,30 +262,30 @@ areasInfo.forEach((area) => {
 const servicecard = document.querySelectorAll(".servicecard");
 
 servicecard.forEach((card) => {
-  const inner = card.querySelector(".serviceinner");
+	const inner = card.querySelector(".serviceinner");
 
-  card.addEventListener("mousemove", (e) => {
-    const rect = card.getBoundingClientRect();
+	card.addEventListener("mousemove", (e) => {
+		const rect = card.getBoundingClientRect();
 
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+		const x = e.clientX - rect.left;
+		const y = e.clientY - rect.top;
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+		const centerX = rect.width / 2;
+		const centerY = rect.height / 2;
 
-    const rotateX = -(y - centerY) / 10;
-    const rotateY = (x - centerX) / 10;
+		const rotateX = -(y - centerY) / 10;
+		const rotateY = (x - centerX) / 10;
 
-    inner.style.transform = `
-      rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg)
-      scale(1.05)
-    `;
-  });
+		inner.style.transform = `
+			rotateX(${rotateX}deg)
+			rotateY(${rotateY}deg)
+			scale(1.05)
+		`;
+	});
 
-  card.addEventListener("mouseleave", () => {
-    inner.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
-  });
+	card.addEventListener("mouseleave", () => {
+		inner.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+	});
 });
 
 

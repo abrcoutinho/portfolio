@@ -14,6 +14,8 @@
 		text-transform: uppercase
 		color: bisque
 		line-height: .8
+		font-weight: 500
+
 		span
 			display: block
 			width: 50vw
@@ -472,6 +474,9 @@
 
 @include base.for-size(tablet_md)
 	.featured
+		.carousel-track
+			&.active
+				gap: 2rem
 		.slide
 			& > div
 				height: 30rem
@@ -503,14 +508,16 @@
 
 
 
-@include base.for-size(tablet_md)
+@include base.for-size(phone)
 	.featured
 		h2
 			padding: 8rem 1rem 5.5rem
 			font-size: 14vw
 			span
 				width: 60vw
-
+		.carousel-track
+			&.active
+				gap: .75rem
 		.slide
 			& > div
 				height: 16rem
@@ -535,6 +542,7 @@
 
 			strong
 				font-size: 2rem
+
 			& > span
 				gap: 1rem
 				p

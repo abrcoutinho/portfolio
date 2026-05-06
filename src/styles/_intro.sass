@@ -15,6 +15,7 @@
 	strong
 		font-size: 30vw
 		position: relative
+		font-weight: 500
 
 		&.dif
 			color: #4aa2a3
@@ -108,7 +109,7 @@
 			text-transform: none
 			cursor: default
 			position: relative
-			z-index: 2
+			z-index: 4
 			transition: transform .5s $ease
 			// animation: trace $ease 500ms infinite alternate
 
@@ -198,8 +199,9 @@
 	position: absolute
 	top: 50%
 	left: 50%
-	margin: -25% -12%
-	z-index: 1
+	// margin: -25vw -12vw
+	transform: translate(-50%, -70%)
+	z-index: 3
 	opacity: 0
 	visibility: hidden
 	transition: opacity .5s
@@ -380,11 +382,11 @@
 
 @include base.for-size(tablet_lg)
 	.intro
-		padding: 20vw 10vw 2vw
+		padding: 20vw 10vw 10vw
 
-		& > div
-			&:not(:first-of-type)
-				margin-top: -8rem
+		// & > div
+		// 	&:not(:first-of-type)
+		// 		margin-top: -8rem
 
 		strong
 			font-size: 22vw
@@ -397,8 +399,19 @@
 
 
 @include base.for-size(tablet_md)
+	.intro
+		#cardslider
+			border-radius: 1rem 2.5rem 1rem 1rem
 	.about
 		padding: 0 3rem
+	.card
+		width: 45vw
+		height: 50vw
+		transform: translate(-50%, -50%)
+	.cert
+		img
+			width: 14vw
+			height: auto
 
 
 @include base.for-size(phone)
@@ -424,7 +437,6 @@
 	.card
 		width: 75vw
 		height: 90vw
-		margin: -35% -38vw
 
 	.cert
 		justify-content: flex-start
@@ -433,4 +445,3 @@
 
 		img
 			width: 20vw
-			height: auto
