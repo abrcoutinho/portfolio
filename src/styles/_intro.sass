@@ -12,10 +12,17 @@
 		justify-content: space-between
 		position: relative
 
+		&:first-of-type strong:first-child::after
+			content: '—'
+			position: absolute
+			top: 0
+			left: 30vw
+
 	strong
 		font-size: 30vw
 		position: relative
 		font-weight: 500
+		position: relative
 
 		&.dif
 			color: #4aa2a3
@@ -427,6 +434,8 @@
 			&:first-of-type
 				strong
 					width: 100%
+					&:first-child::after
+						left: 34vw
 		strong
 			font-size: 34vw
 
