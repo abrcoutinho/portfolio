@@ -516,42 +516,50 @@
 			font-size: 14vw
 			span
 				width: 60vw
+		.carousel
+			padding-left: 4vw
 		.carousel-track
 			&.active
 				gap: .75rem
 		.slide
 			& > div
-				height: 16rem
+				width: 88vw
+				height: 32rem
 				border-radius: 1rem 4rem 0.5rem 0.5rem
 
 				&::after
-					width: 70vw
-					height: 38vw
+					width: 84vw
+					height: 45vw
+					border-radius: .75rem
+			video
+				width: 84vw
 
 			h3
 				font-size: 6vw
+				span
+					right: 1rem
 			&:hover h3 i
 				flex: 0 0 0
 				margin-right: 0
 
 		[data-info]
 			width: 36rem
-			height: 16rem
+			height: 32rem
 			padding: 1.5rem
 			border-radius: 1rem 4rem 0.5rem 0.5rem
 			gap: .5rem
 
 			strong
-				font-size: 2rem
+				font-size: 3rem
 
 			& > span
 				gap: 1rem
 				p
-					font-size: 2.5vw
+					font-size: 3.5vw
 					&:first-of-type
-						font-size: 3.5vw
+						font-size: 4vw
 
 		[data-name=vega-placas] > div video
-			height: 50vw
+			height: 110vw
 		[data-name=roleta] > div video
-			height: 50vw
+			height: 110vw

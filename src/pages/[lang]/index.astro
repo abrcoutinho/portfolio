@@ -140,7 +140,7 @@ const cardImages = [
 	<div class="about">
 		<header>
 			<h2 set:html={dict.about.title} class="split" />
-			<a href="#" title={dict.about.button} target="_blank" data-after={dict.about.button}>
+			<a href={`${import.meta.env.BASE_URL}CV.pdf`} title={dict.about.button} target="_blank" data-after={dict.about.button}>
 				<span>{dict.about.button}</span>
 			</a>
 		</header>

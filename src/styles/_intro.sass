@@ -420,6 +420,42 @@
 
 
 @include base.for-size(phone)
+	.intro
+		padding: 20vw 4vw 10vw
+		& > div
+			flex-wrap: wrap
+			&:first-of-type
+				strong
+					width: 100%
+		strong
+			font-size: 34vw
+
+		#cardslider
+			margin-top: 0
+			position: absolute
+			top: 8vw
+			right: 0
+			width: 40vw
+			height: 50vw
+
+		#three-container
+			display: none
+
+		.who_i_am
+			order: 2
+			width: 100%
+			font-size: 5vw
+			padding: 10vw 0
+
+			em
+				font-size: 18vw
+				padding-left: 1vw
+				&::before
+					width: 24vw
+					height: 24vw
+				&.active
+					transform: translateY(32vw)
+
 	.about
 		padding: 0 2rem
 		flex-wrap: wrap
@@ -434,7 +470,8 @@
 			font-size: 12vw
 		a
 			&::before
-				display: none
+				right: initial
+				left: -2rem
 		p
 			font-size: .9rem
 			line-height: 1.6
