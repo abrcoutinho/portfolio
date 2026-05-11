@@ -20,9 +20,9 @@ const currentLang = ["en", "pt"].includes(lang) ? lang : "en";
 const dict = getLang(currentLang);
 
 const cardImages = [
-	"/portfolio/img/slides/vega/panfleto1.jpg", 
-	"/portfolio/img/slides/vega/panfleto2.jpg", 
-	"/portfolio/img/slides/vega/panfleto3.jpg"
+	"/img/slides/vega/panfleto1.jpg", 
+	"/img/slides/vega/panfleto2.jpg", 
+	"/img/slides/vega/panfleto3.jpg"
 ];
 
 
@@ -173,6 +173,7 @@ const cardImages = [
 			<span set:html={dict.featured.title2}/>
 		</h2>
 
+		<!-- vega -->
 		<div class="carousel" data-carousel>
 			<div class="carousel-track">
 				<SlideVideo
@@ -193,7 +194,7 @@ const cardImages = [
 						<p set:html={dict.featured.vega_p1}/>
 						<p set:html={dict.featured.vega_p2}/>
 						<p set:html={dict.featured.vega_p3}/>
-					</soan>
+					</span>
 				</article>
 				<SlideVideo
 					name="Placas de Premiação"
@@ -204,7 +205,7 @@ const cardImages = [
 					loop="true"
 					company="Vega"
 					grupos={[
-						{ itens: ["Design Gráfico", "Gamificação"] }
+						{ itens: ["Graphic Design", "Gamification"] }
 					]}
 				/>
 				<SlideIMG
@@ -237,7 +238,7 @@ const cardImages = [
 					dataname="vega-flyer"
 					company="Vega"
 					grupos={[
-						{ itens: ["Design Gráfico"] }
+						{ itens: ["Graphic Design"] }
 					]}
 				/>
 				<SlideIMG
@@ -246,7 +247,7 @@ const cardImages = [
 					dataname="vega-folder"
 					company="Vega"
 					grupos={[
-						{ itens: ["Design Gráfico"] }
+						{ itens: ["Graphic Design"] }
 					]}
 				/>
 				<SlideVideo
@@ -258,7 +259,40 @@ const cardImages = [
 					loop="true"
 					company="Vega"
 					grupos={[
-						{ itens: ["Gamificação", "UI dev"] }
+						{ itens: ["Gamification", "UI dev"] }
+					]}
+				/>
+			</div>
+			<div class="carousel-dots"></div>
+		</div>
+
+		<!-- uol -->
+		<div class="carousel" data-carousel>
+			<div class="carousel-track">
+				<SlideIMG
+					name="Discovery process"
+					alt="Discovery"
+					dataname="uol-discovery"
+					company="UOL"
+					grupos={[
+						{ itens: ["Design Thinking", "Research"] }
+					]}
+				/>
+				<article class="slide" data-info data-name="uol-info">
+					<strong>UOL</strong>
+					<span>
+						<p set:html={dict.featured.uol_p1}/>
+						<p set:html={dict.featured.uol_p2}/>
+						<p set:html={dict.featured.uol_p3}/>
+					</span>
+				</article>
+				<SlideIMG
+					name="Programa de Incentivo"
+					alt="Programa de Incentivo"
+					dataname="uol-gamification"
+					company="UOL"
+					grupos={[
+						{ itens: ["Gamification", "Research"] }
 					]}
 				/>
 			</div>

@@ -35,7 +35,7 @@
 		touch-action: pan-y
 		user-select: none
 		background-color: var(--dark2)
-		
+		margin-bottom: 6rem
 
 	.carousel-track
 		width: max-content
@@ -135,7 +135,7 @@
 				flex: 0 0 0
 				height: 1.5rem
 				background-color: cornsilk
-				mask-image: url("/portfolio/img/icons/arrow-right.svg")
+				mask-image: url("/img/icons/arrow-right.svg")
 				mask-size: 1.5rem 1.5rem
 				mask-repeat: no-repeat
 				mask-position: -1.5rem 0
@@ -286,23 +286,23 @@
 	// Peças
 	[data-name="vega-landing"]
 		& > div
-			background-image: url("/portfolio/img/slides/vega/bg-landing.png")
+			background-image: url("/img/slides/vega/bg-landing.png")
 	[data-name="vega-placas"]
 		& > div
-			background-image: url("/portfolio/img/slides/vega/bg-placas.png")
+			background-image: url("/img/slides/vega/bg-placas.png")
 			&::before
 				opacity: .25
 			video
 				height: 580px
 	[data-name="roleta"]
 		& > div
-			background-image: url("/portfolio/img/slides/vega/bg-roleta.png")
+			background-image: url("/img/slides/vega/bg-roleta.png")
 			max-width: 600px
 			video
 				height: 580px
 	[data-name="vega-flyer"]
 		& > div
-			background-image: url("/portfolio/img/slides/vega/bg-flyer.jpg")
+			background-image: url("/img/slides/vega/bg-flyer.jpg")
 			img
 				display: none
 			&::after
@@ -310,28 +310,18 @@
 				animation: vega_flyer 10s infinite
 
 		@keyframes vega_flyer
-			0%
-				background-image: url("/portfolio/img/slides/vega/panfleto4.jpg")
-			5%
-				background-image: url("/portfolio/img/slides/vega/panfleto1.jpg")
-			25%
-				background-image: url("/portfolio/img/slides/vega/panfleto1.jpg")
-			30%
-				background-image: url("/portfolio/img/slides/vega/panfleto2.jpg")
-			50%
-				background-image: url("/portfolio/img/slides/vega/panfleto2.jpg")
-			55%
-				background-image: url("/portfolio/img/slides/vega/panfleto3.jpg")
-			75%
-				background-image: url("/portfolio/img/slides/vega/panfleto3.jpg")
-			80%
-				background-image: url("/portfolio/img/slides/vega/panfleto4.jpg")
-			100%
-				background-image: url("/portfolio/img/slides/vega/panfleto4.jpg")
+			0%, 24%
+				background-image: url("/img/slides/vega/panfleto1.jpg")
+			25%, 49%
+				background-image: url("/img/slides/vega/panfleto2.jpg")
+			50%, 74%
+				background-image: url("/img/slides/vega/panfleto3.jpg")
+			75%, 100%
+				background-image: url("/img/slides/vega/panfleto4.jpg")
 
 	[data-name="vega-folder"]
 		& > div
-			background-image: url("/portfolio/img/slides/vega/bg-folder.jpg")
+			background-image: url("/img/slides/vega/bg-folder.jpg")
 			img
 				display: none
 			&::after
@@ -339,24 +329,16 @@
 				animation: vega_folder 10s infinite
 
 		@keyframes vega_folder
-			0%
-				background-image: url("/portfolio/img/slides/vega/folder3.jpg")
-			5%
-				background-image: url("/portfolio/img/slides/vega/folder1.jpg")
-			30%
-				background-image: url("/portfolio/img/slides/vega/folder1.jpg")
-			35%
-				background-image: url("/portfolio/img/slides/vega/folder2.jpg")
-			60%
-				background-image: url("/portfolio/img/slides/vega/folder2.jpg")
-			65%
-				background-image: url("/portfolio/img/slides/vega/folder3.jpg")
-			100%
-				background-image: url("/portfolio/img/slides/vega/folder3.jpg")
+			0%, 32%
+				background-image: url("/img/slides/vega/folder1.jpg")
+			33%, 65%
+				background-image: url("/img/slides/vega/folder2.jpg")
+			66%, 100%
+				background-image: url("/img/slides/vega/folder3.jpg")
 
 	[data-name="checkout"]
 		& > div
-			background-image: url("/portfolio/img/slides/vega/bg-checkout.png")
+			background-image: url("/img/slides/vega/bg-checkout.png")
 			img
 				display: none
 			&::after
@@ -364,32 +346,20 @@
 				animation: checkout 12s infinite
 
 		@keyframes checkout
-			0%
-				background-image: url("/portfolio/img/slides/vega/checkout5.jpg")
-			5%
-				background-image: url("/portfolio/img/slides/vega/checkout1.jpg")
-			18%
-				background-image: url("/portfolio/img/slides/vega/checkout1.jpg")
-			22%
-				background-image: url("/portfolio/img/slides/vega/checkout2.jpg")
-			40%
-				background-image: url("/portfolio/img/slides/vega/checkout2.jpg")
-			45%
-				background-image: url("/portfolio/img/slides/vega/checkout3.jpg")
-			65%
-				background-image: url("/portfolio/img/slides/vega/checkout3.jpg")
-			70%
-				background-image: url("/portfolio/img/slides/vega/checkout4.jpg")
-			85%
-				background-image: url("/portfolio/img/slides/vega/checkout4.jpg")
-			90%
-				background-image: url("/portfolio/img/slides/vega/checkout5.jpg")
-			100%
-				background-image: url("/portfolio/img/slides/vega/checkout5.jpg")
+			0%, 19%
+				background-image: url("/img/slides/vega/checkout1.jpg")
+			20%, 39%
+				background-image: url("/img/slides/vega/checkout2.jpg")
+			40%, 59%
+				background-image: url("/img/slides/vega/checkout3.jpg")
+			60%, 79%
+				background-image: url("/img/slides/vega/checkout4.jpg")
+			80%, 100%
+				background-image: url("/img/slides/vega/checkout5.jpg")
 
 	[data-name="vega-ajuda"]
 		& > div
-			background-image: url("/portfolio/img/slides/vega/bg-ajuda.png")
+			background-image: url("/img/slides/vega/bg-ajuda.png")
 			img
 				display: none
 			&::after
@@ -397,28 +367,18 @@
 				animation: vega_ajuda 16s infinite
 
 		@keyframes vega_ajuda
-			0%
-				background-image: url("/portfolio/img/slides/vega/ajuda4.jpg")
-			5%
-				background-image: url("/portfolio/img/slides/vega/ajuda1.jpg")
-			25%
-				background-image: url("/portfolio/img/slides/vega/ajuda1.jpg")
-			30%
-				background-image: url("/portfolio/img/slides/vega/ajuda2.jpg")
-			50%
-				background-image: url("/portfolio/img/slides/vega/ajuda2.jpg")
-			55%
-				background-image: url("/portfolio/img/slides/vega/ajuda3.jpg")
-			75%
-				background-image: url("/portfolio/img/slides/vega/ajuda3.jpg")
-			80%
-				background-image: url("/portfolio/img/slides/vega/ajuda4.jpg")
-			100%
-				background-image: url("/portfolio/img/slides/vega/ajuda4.jpg")
+			0%, 24%
+				background-image: url("/img/slides/vega/ajuda1.jpg")
+			25%, 49%
+				background-image: url("/img/slides/vega/ajuda2.jpg")
+			50%, 74%
+				background-image: url("/img/slides/vega/ajuda3.jpg")
+			75%, 100%
+				background-image: url("/img/slides/vega/ajuda4.jpg")
 
 	[data-name="vega-dash"]
 		& > div
-			background-image: url("/portfolio/img/slides/vega/bg-dash.png")
+			background-image: url("/img/slides/vega/bg-dash.png")
 			img
 				display: none
 			&::after
@@ -426,32 +386,73 @@
 				animation: vega_dash 16s infinite
 
 		@keyframes vega_dash
-			0%
-				background-image: url("/portfolio/img/slides/vega/dash6.jpg")
-			3%
-				background-image: url("/portfolio/img/slides/vega/dash1.jpg")
-			15%
-				background-image: url("/portfolio/img/slides/vega/dash1.jpg")
-			18%
-				background-image: url("/portfolio/img/slides/vega/dash2.jpg")
-			30%
-				background-image: url("/portfolio/img/slides/vega/dash2.jpg")
-			33%
-				background-image: url("/portfolio/img/slides/vega/dash3.jpg")
-			45%
-				background-image: url("/portfolio/img/slides/vega/dash3.jpg")
-			48%
-				background-image: url("/portfolio/img/slides/vega/dash4.jpg")
-			60%
-				background-image: url("/portfolio/img/slides/vega/dash4.jpg")
-			63%
-				background-image: url("/portfolio/img/slides/vega/dash5.jpg")
-			85%
-				background-image: url("/portfolio/img/slides/vega/dash5.jpg")
-			88%
-				background-image: url("/portfolio/img/slides/vega/dash6.jpg")
-			100%
-				background-image: url("/portfolio/img/slides/vega/dash6.jpg")
+			0%, 15%
+				background-image: url("/img/slides/vega/dash1.jpg")
+			16%, 31%
+				background-image: url("/img/slides/vega/dash2.jpg")
+			32%, 47%
+				background-image: url("/img/slides/vega/dash3.jpg")
+			48%, 63%
+				background-image: url("/img/slides/vega/dash4.jpg")
+			64%, 79%
+				background-image: url("/img/slides/vega/dash5.jpg")
+			80%, 100%
+				background-image: url("/img/slides/vega/dash6.jpg")
+
+
+	[data-name="uol-discovery"]
+		& > div
+			background-image: url("/img/slides/uol/bg-uol.webp")
+			img
+				display: none
+			&::after
+				visibility: visible
+				background-size: cover
+				animation: uol_discovery 20s infinite
+
+		@keyframes uol_discovery
+			0%, 13%
+				background-image: url("/img/slides/uol/discovery1.webp")
+			14%, 27%
+				background-image: url("/img/slides/uol/discovery2.webp")
+			28%, 41%
+				background-image: url("/img/slides/uol/discovery3.webp")
+			42%, 55%
+				background-image: url("/img/slides/uol/discovery4.webp")
+			56%, 69%
+				background-image: url("/img/slides/uol/discovery5.webp")
+			70%, 83%
+				background-image: url("/img/slides/uol/discovery6.webp")
+			84%, 100%
+				background-image: url("/img/slides/uol/discovery7.webp")
+
+	[data-name="uol-gamification"]
+		& > div
+			background-image: url("/img/slides/uol/bg2-uol.png")
+			img
+				display: none
+			&::after
+				visibility: visible
+				background-size: cover
+				background-position: center
+				animation: uol_gamification 24s infinite
+
+		@keyframes uol_gamification
+			0%, 13%
+				background-image: url("/img/slides/uol/incentivo1.webp")
+			14%, 27%
+				background-image: url("/img/slides/uol/incentivo2.webp")
+			28%, 41%
+				background-image: url("/img/slides/uol/incentivo3.webp")
+			42%, 55%
+				background-image: url("/img/slides/uol/incentivo4.webp")
+			56%, 69%
+				background-image: url("/img/slides/uol/incentivo5.webp")
+			70%, 83%
+				background-image: url("/img/slides/uol/incentivo6.webp")
+			84%, 100%
+				background-image: url("/img/slides/uol/incentivo7.webp")
+
 
 
 

@@ -138,7 +138,7 @@
 				width: 12vw
 				height: 12vw
 				// background-color: var(--bright1)
-				// mask-image: url("/portfolio/img/icons/aim.svg")
+				// mask-image: url("/img/icons/aim.svg")
 				// mask-size: contain
 				// border: solid 2px var(--bright1)
 				border-radius: 100%
@@ -190,7 +190,7 @@
 		width: 1.5vw
 		height: 1.5vw
 		background-color: var(--dark1)
-		mask-image: url("/portfolio/img/icons/info.svg")
+		mask-image: url("/img/icons/info.svg")
 		mask-size: contain
 		position: absolute
 		top: 1.8vw
@@ -230,7 +230,7 @@
 		inset: 0
 	.bg
 		background:
-			image: url("/portfolio/img/me.webp")
+			image: url("/img/me.webp")
 			position: center
 			size: cover
 		transform: translateZ(0px)
@@ -243,14 +243,14 @@
 		mix-blend-mode: saturation
 		opacity: 0.7
 		transform: translateZ(45px)
-		mask-image: url("/portfolio/img/halftone.webp")
+		mask-image: url("/img/halftone.webp")
 	.glare
 		position: absolute
 		inset: 0
 		opacity: 0
 		transition: opacity 0.5s
 		pointer-events: none
-		mask-image: url("/portfolio/img/noppy.svg")
+		mask-image: url("/img/noppy.svg")
 		will-change: background
 	.edge
 		position: absolute
@@ -260,7 +260,7 @@
 		background: linear-gradient(120deg,	transparent, rgba(255,255,255,0.4),	transparent)
 		opacity: 0.4
 		transition: opacity 0.3s
-		mask-image: url("/portfolio/img/halftone.webp")
+		mask-image: url("/img/halftone.webp")
 		will-change: background
 		mix-blend-mode: overlay
 	.noise
@@ -327,7 +327,7 @@
 			width: 1.5rem
 			height: 1.5rem
 			background-color: bisque
-			mask-image: url("/portfolio/img/icons/doc.svg")
+			mask-image: url("/img/icons/doc.svg")
 			mask-size: contain
 			position: absolute
 			top: 50%
@@ -442,10 +442,10 @@
 		#cardslider
 			margin-top: 0
 			position: absolute
-			top: 8vw
+			top: 0
 			right: 0
-			width: 40vw
-			height: 50vw
+			width: 45vw
+			height: 60vw
 
 		#three-container
 			display: none
@@ -464,6 +464,10 @@
 					height: 24vw
 				&.active
 					transform: translateY(32vw)
+
+		.infoico
+			width: 1rem
+			height: 1rem
 
 	.about
 		padding: 0 2rem

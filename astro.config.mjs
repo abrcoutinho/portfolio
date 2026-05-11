@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	base: '/portfolio/',
-	site: 'https://abrcoutinho.github.io/portfolio/',
+	// base: '/',
+	site: 'https://noppy.com.br',
 	output: 'static',
 });

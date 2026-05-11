@@ -18,6 +18,12 @@ export default {
     vega_p1: "O Vega é uma startup do segmento de e-commerce que fornece ferramentas de performance para escalar vendas online.",
     vega_p2: "Propuz o <b>redesign do sistema</b> legado partindo de feedbacks de clientes, com protótipo trazendo melhorias significativas na arquitetura de navegação, layout e percepção de qualidade. Um novo modelo de <b>checkout</b> foi desenhado para ter mais customizações e compatibilidade visual com as marcas.",
     vega_p3: "Definimos via reuniões de brainstorming <b>placas</b> de premiação por alcance de metas que aumentaram o engajamento dos clientes. Desenvolvi <b>web site</b> com look and feel e navegação disruptivos, o que ajudou a consolidar a marca no mercado. Além de outros projetos promocionais e impressos.",
+    uol_p1: "A fim de ampliar o direcionamento de negócio no UOL Afiliados fizemos um mapeamento estratégico para garantir que o produto pudesse permanecer competitivo no longo prazo.",
+    uol_p2: "Por doze semanas facilitamos encontros com stakeholders gerando uma <b>descoberta de produto</b>. Ao final do período tínhamos documentado a visão, missão e propósito do negócio, a proposta de valor, matriz SWOT com destaque nas forças e oportunidades, validação de personas e jornadas dos usuários com pesquisa qualitativa, e OKR's delineando metas.",
+    uol_p3: "Idealizei um <b>programa de incentivo gamificado</b> para premiar afiliados. Apresentei um estudo teórico com base em KPI's e um protótipo, consistindo em modelos de engajamento, missão central com um tipo de degraus representando a performance de vendas, premiações relativas ao tamanho da conquista, motivadores transacionais e emocionais e mecânicas de recompensa.",
+    tag_graphic: "Design Gráfico",
+    tag_research: "Pesquisa",
+    tag_gamification: "Gamificação",
   },
   services: {
     title1: "Habili<i>d</i>ades",
