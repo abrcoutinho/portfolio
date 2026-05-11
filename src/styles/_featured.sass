@@ -93,6 +93,8 @@
 				transform: translate(-50%, -50%)
 				z-index: 2
 				visibility: hidden
+				background-repeat: no-repeat
+				background-position: center
 
 		img
 			width: 780px
@@ -407,7 +409,7 @@
 				display: none
 			&::after
 				visibility: visible
-				background-size: cover
+				background-size: cover !important
 				animation: uol_discovery 20s infinite
 
 		@keyframes uol_discovery
@@ -433,9 +435,9 @@
 				display: none
 			&::after
 				visibility: visible
-				background-size: cover
+				background-size: cover !important
 				background-position: center
-				animation: uol_gamification 24s infinite
+				animation: uol_gamification 20s infinite
 
 		@keyframes uol_gamification
 			0%, 13%
@@ -453,6 +455,64 @@
 			84%, 100%
 				background-image: url("/img/slides/uol/incentivo7.webp")
 
+	[data-name="uol-bate-papo"]
+		& > div
+			background-image: url("/img/slides/uol/wire-bp.png")
+			background-size: 130% auto
+			img
+				display: none
+			&::after
+				visibility: visible
+				background-image: url("/img/slides/uol/wire-bp.png")
+				background-size: 120% auto !important
+				animation: uol_bp 5s alternate infinite $ease
+
+		@keyframes uol_bp
+			0%
+				background-position: center -2.5rem
+			100%
+				background-position: center 30%
+				
+	[data-name="dynad-dash"]
+		& > div
+			background-image: url("/img/slides/uol/bg-uol.webp")
+
+	[data-name="uol-user-flow"]
+		& > div
+			background-image: url("/img/slides/uol/bg2-uol.png")
+			img
+				display: none
+			&::after
+				visibility: visible
+				background-image: url("/img/slides/uol/user-flow.webp")
+				background-size: 100% auto !important
+				animation: uol_user_flow 5s alternate infinite $ease
+
+		@keyframes uol_user_flow
+			0%
+				background-position: center top
+			100%
+				background-position: center 60%
+
+	[data-name="fictor-dash"]
+		& > div
+			background-image: url("/img/slides/others/fictor-bg.webp")
+			img
+				display: none
+			&::after
+				visibility: visible
+				background-image: url("/img/slides/others/fictor.webp")
+				background-size: contain !important
+
+	[data-name="ingty-dash"]
+		& > div
+			background-image: url("/img/slides/others/ingty-bg.png")
+			img
+				display: none
+			&::after
+				visibility: visible
+				background-image: url("/img/slides/others/ingty.webp")
+				background-size: contain !important
 
 
 

@@ -20,7 +20,8 @@ const currentLang = ["en", "pt"].includes(lang) ? lang : "en";
 const dict = getLang(currentLang);
 
 const cardImages = [
-	"/img/slides/vega/panfleto1.jpg", 
+	"/img/slides/others/ingty-bg.png",
+	"/img/slides/others/fictor-card.webp", 
 	"/img/slides/vega/panfleto2.jpg", 
 	"/img/slides/vega/panfleto3.jpg"
 ];
@@ -295,21 +296,63 @@ const cardImages = [
 						{ itens: ["Gamification", "Research"] }
 					]}
 				/>
+				<SlideIMG
+					name="Bate-papo UOL"
+					alt="Wireframe"
+					dataname="uol-bate-papo"
+					company="UOL"
+					grupos={[
+						{ itens: ["UX/UI", "Wireframe"] }
+					]}
+				/>
+				<SlideVideo
+					name="White Label Dashboard"
+					src={`${import.meta.env.BASE_URL}img/slides/uol/dynad-dash.mp4`}
+					dataname="dynad-dash"
+					type="video/mp4"
+					muted="true"
+					loop="true"
+					company="UOL"
+					grupos={[
+						{ itens: ["UX/UI", "Wireframe"] }
+					]}
+				/>
+				<SlideIMG
+					name="User Flow"
+					alt="User Flow"
+					dataname="uol-user-flow"
+					company="UOL"
+					grupos={[
+						{ itens: ["UX", "Mind map"] }
+					]}
+				/>
 			</div>
 			<div class="carousel-dots"></div>
 		</div>
 
-<!-- 		<div class="carousel" data-carousel>
+		<div class="carousel" data-carousel>
 			<div class="carousel-track">
 				<SlideIMG
-					name= "Vega Landing Page"
-					src={`${import.meta.env.BASE_URL}img/me.webp`}
-					alt="Vega Landing Page"
-					order="3"
+					name="Dashboard"
+					alt="Dashboard"
+					dataname="fictor-dash"
+					company="FictorPay"
+					grupos={[
+						{ itens: ["UX/UI"] }
+					]}
+				/>
+				<SlideIMG
+					name="Dashboard"
+					alt="Dashboard"
+					dataname="ingty-dash"
+					company="Ingty"
+					grupos={[
+						{ itens: ["UX/UI"] }
+					]}
 				/>
 			</div>
 			<div class="carousel-dots"></div>
-		</div> -->
+		</div>
 
 
 	</div>
