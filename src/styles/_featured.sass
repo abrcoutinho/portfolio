@@ -502,18 +502,126 @@
 			&::after
 				visibility: visible
 				background-image: url("/img/slides/others/fictor.webp")
-				background-size: contain !important
+				animation: fictor_dash 17s infinite
+
+		@keyframes fictor_dash
+			0%, 25%
+				background-size: contain
+				background-position: center
+			25.1%
+				background-size: 150% auto
+				background-position: left bottom
+			100%
+				background-size: 150% auto
+				background-position: right top
+
+
 
 	[data-name="ingty-dash"]
 		& > div
-			background-image: url("/img/slides/others/ingty-bg.png")
+			background-image: url("/img/slides/others/ingty-bg.webp")
 			img
 				display: none
 			&::after
 				visibility: visible
-				background-image: url("/img/slides/others/ingty.webp")
 				background-size: contain !important
+				animation: ingty_dash 14s infinite
 
+		@keyframes ingty_dash
+			0%, 24%
+				background-image: url("/img/slides/others/ingty-1.webp")
+			25%, 49%
+				background-image: url("/img/slides/others/ingty-2.webp")
+			50%, 74%
+				background-image: url("/img/slides/others/ingty-3.webp")
+			75%, 100%
+				background-image: url("/img/slides/others/ingty-4.webp")
+
+
+	[data-name="pp-dash"]
+		& > div
+			background-image: url("/img/slides/others/pp-bg.png")
+			img
+				display: none
+			&::after
+				visibility: visible
+				background-image: url("/img/slides/others/pp-dash.webp")
+				animation: pp_dash 20s infinite
+
+		@keyframes pp_dash
+			0%, 25%
+				background-image: url("/img/slides/others/pp-dash-1.webp")
+				background-size: contain
+				background-position: center
+			25.1%
+				background-image: url("/img/slides/others/pp-dash-2.webp")
+				background-size: 100% auto
+				background-position: 0 bottom
+			100%
+				background-image: url("/img/slides/others/pp-dash-2.webp")
+				background-size: 100% auto
+				background-position: 0 top
+
+
+	[data-name="skalame"]
+		& > div
+			background-image: url("/img/slides/others/skalame-bg.png")
+			img
+				display: none
+			&::after
+				visibility: visible
+				background-size: contain !important
+				animation: skalame_dash 12s infinite
+
+		@keyframes skalame_dash
+			0%, 24%
+				background-image: url("/img/slides/others/skalame-1.png")
+			25%, 49%
+				background-image: url("/img/slides/others/skalame-2.png")
+			50%, 74%
+				background-image: url("/img/slides/others/skalame-3.png")
+			75%, 100%
+				background-image: url("/img/slides/others/skalame-4.png")
+
+	// [data-name="insightful"]
+	// 	& > div
+	// 		background-image: url("/img/slides/others/skalame-bg.png")
+	// 		img
+	// 			display: none
+	// 		&::after
+	// 			visibility: visible
+	// 			background-size: contain !important
+	// 			animation: insightful_dash 14s infinite
+
+	// 	@keyframes insightful_dash
+	// 		0%, 24%
+	// 			background-image: url("/img/slides/others/insightful-1.webp")
+	// 		25%, 49%
+	// 			background-image: url("/img/slides/others/insightful-2.webp")
+	// 		50%, 74%
+	// 			background-image: url("/img/slides/others/insightful-3.webp")
+	// 		75%, 100%
+	// 			background-image: url("/img/slides/others/insightful-4.webp")
+
+	[data-name="vamos-dash"]
+		& > div
+			background-image: url("/img/slides/others/vamos-bg.webp")
+			img
+				display: none
+			&::after
+				visibility: visible
+				background-size: contain !important
+				animation: insightful_dash 13s infinite
+
+		@keyframes insightful_dash
+			0%, 24%
+				background-image: url("/img/slides/others/vamos-1.webp")
+			25%, 49%
+				background-image: url("/img/slides/others/vamos-2.webp")
+			50%, 74%
+				background-image: url("/img/slides/others/vamos-3.webp")
+			75%, 100%
+				background-image: url("/img/slides/others/vamos-4.webp")
 
 
 
