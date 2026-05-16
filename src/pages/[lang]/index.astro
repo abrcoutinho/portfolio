@@ -161,6 +161,12 @@ const cardImages = [
 				</figcaption>
 			</figure>
 			<figure class="areainfo">
+				<img src={`${import.meta.env.BASE_URL}img/nng.png`} alt="NN/g" />
+				<figcaption class="info">
+					<marquee direction="left" scrollamount="12">Nielsen Norman Group</marquee>
+				</figcaption>
+			</figure>
+			<figure class="areainfo">
 				<img src={`${import.meta.env.BASE_URL}img/ixdf.png`} alt="IxDF" />
 				<figcaption class="info">
 					<marquee direction="left" scrollamount="12">Interaction Design Foundation</marquee>
@@ -298,12 +304,21 @@ const cardImages = [
 					]}
 				/>
 				<SlideIMG
-					name="Bate-papo UOL"
+					name="LP Bate-papo UOL"
 					alt="Wireframe"
 					dataname="uol-bate-papo"
 					company="UOL"
 					grupos={[
 						{ itens: ["UX/UI", "Wireframe"] }
+					]}
+				/>
+				<SlideIMG
+					name="LP Bate-papo BOL"
+					alt="BOL"
+					dataname="bol-bate-papo"
+					company="UOL"
+					grupos={[
+						{ itens: ["UX/UI"] }
 					]}
 				/>
 				<SlideVideo

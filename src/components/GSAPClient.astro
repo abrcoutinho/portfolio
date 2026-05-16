@@ -149,17 +149,22 @@
 	}
 	slidesGap();
 
-	gsap.to(".slide > div", {
-		backgroundPosition: "50% 100%",
-		ease: "none",
-		scrollTrigger: {
-			trigger: ".slide",
-			start: "top bottom",
-			end: "bottom top",
-			scrub: true,
-			markers: false
-		}
+
+	gsap.utils.toArray(".slide > div").forEach((el) => {
+		gsap.to(el, {
+			backgroundPosition: "50% 100%",
+			ease: "none",
+			scrollTrigger: {
+				trigger: el,
+				start: "top bottom",
+				end: "bottom top",
+				scrub: true,
+				markers: false
+			}
+		});
 	});
+
+
 
 	// requestAnimationFrame(() => {
 	//   document.querySelectorAll(".animated-section").forEach((section) => {
