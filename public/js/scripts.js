@@ -207,6 +207,22 @@ abeWord.addEventListener('click', (event) => {
 
 
 
+// Download CV
+document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('downloadCV');
+    const lang = window.location.pathname.split('/')[1];
+
+    const files = {
+        en: 'CV-en.pdf',
+        pt: 'CV-pt.pdf'
+    };
+
+    if (files[lang]) {
+        btn.href = `${window.location.origin}/${files[lang]}`;
+    }
+});
+
+
 // infos
 const areasInfo = document.querySelectorAll(".areainfo");
 
