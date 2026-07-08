@@ -571,7 +571,7 @@
 				display: none
 			&::after
 				visibility: visible
-				background-image: url("/img/slides/others/pp-dash.webp")
+				background-image: url("/img/slides/others/pp-dash-1.webp")
 				animation: pp_dash 20s infinite
 
 		@keyframes pp_dash
@@ -649,6 +649,57 @@
 			75%, 100%
 				background-image: url("/img/slides/others/vamos-4.webp")
 
+	[data-name="contabilizei"]
+		& > div
+			background-image: url("/img/slides/others/contabilizei-bg.jpg")
+			img
+				display: none
+			&::after
+				visibility: visible
+				background-size: 120% auto
+				background-image: url("/img/slides/others/contabilizei.png")
+				animation: contabilizei 13s infinite alternate-reverse ease-in-out
+
+		@keyframes contabilizei
+			0%
+				background-position: center bottom
+			100%
+				background-position: center top
+
+	[data-name="minhasrotas"]
+		& > div
+			background-image: url("/img/slides/others/minhasrotas-bg.webp")
+			background-size: auto 150%
+			img
+				display: none
+			&::after
+				visibility: visible
+				background-size: 100% auto
+				background-image: url("/img/slides/others/minhasrotas.webp")
+				animation: minhasrotas 22s infinite alternate-reverse ease-in-out
+
+		@keyframes minhasrotas
+			0%
+				background-position: center bottom
+			100%
+				background-position: center top
+
+	[data-name="platform"]
+		& > div
+			background-image: url("/img/slides/others/platform-bg.jpg")
+			img
+				display: none
+			&::after
+				visibility: visible
+				background-size: 150% auto
+				background-image: url("/img/slides/others/platform.webp")
+				animation: platform 20s infinite alternate-reverse ease-in-out
+
+		@keyframes platform
+			0%
+				background-position: center bottom
+			100%
+				background-position: center top
 
 
 

@@ -20,11 +20,12 @@ const currentLang = ["en", "pt"].includes(lang) ? lang : "en";
 const dict = getLang(currentLang);
 
 const cardImages = [
-	"/img/slides/others/ingty-bg.png",
-	"/img/slides/others/fictor-card.webp", 
-	"/img/slides/vega/vega-card.webp",
+	"/img/slides/vega/vega-card.jpeg",
 	"/img/slides/others/pp-card.png",
-	"/img/slides/vega/panfleto3.jpg"
+	"/img/slides/others/ingty-bg.png",
+	"/img/slides/others/fictor-card.png", 
+	"/img/slides/others/vamos-card.png",
+	"/img/slides/vega/bg-flyer.jpg"
 ];
 
 
@@ -267,7 +268,7 @@ const cardImages = [
 					loop="true"
 					company="Vega"
 					grupos={[
-						{ itens: ["Gamification", "UI dev"] }
+						{ itens: ["Gamification", "HTML Canvas"] }
 					]}
 				/>
 			</div>
@@ -364,7 +365,7 @@ const cardImages = [
 					dataname="vamos-dash"
 					company="Vamos"
 					grupos={[
-						{ itens: ["UX/UI"] }
+						{ itens: ["UX/UI", "UI dev"] }
 					]}
 				/>
 				<SlideIMG
@@ -382,7 +383,7 @@ const cardImages = [
 					dataname="ingty-dash"
 					company="Ingty"
 					grupos={[
-						{ itens: ["UX/UI"] }
+						{ itens: ["UX/UI", "UI dev"] }
 					]}
 				/>
 				<SlideIMG
@@ -392,6 +393,33 @@ const cardImages = [
 					company="Skalame"
 					grupos={[
 						{ itens: ["UX/UI"] }
+					]}
+				/>
+				<SlideIMG
+					name="Landing page"
+					alt="Landing page Contabilizei"
+					dataname="contabilizei"
+					company="Contabilizei"
+					grupos={[
+						{ itens: ["UI design"] }
+					]}
+				/>
+				<SlideIMG
+					name="Landing page"
+					alt="Landing page Minhasrotas"
+					dataname="minhasrotas"
+					company="Maplnk"
+					grupos={[
+						{ itens: ["UI design & dev"] }
+					]}
+				/>
+				<SlideIMG
+					name="Landing page"
+					alt="Landing page Platform"
+					dataname="platform"
+					company="Maplnk"
+					grupos={[
+						{ itens: ["UI design & dev"] }
 					]}
 				/>
 			</div>
